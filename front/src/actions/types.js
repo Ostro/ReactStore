@@ -1,0 +1,5 @@
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const CREATE_PRODUCT = 'CREATE_PRODUCT';
+export const FETCH_MY_PRODUCTS = 'FETCH_MY_PRODUCTS';
+export const USER_LOGOUT = 'USER_LOGOUT';

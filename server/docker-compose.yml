@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    image: node:10.15.1-alpine
+    working_dir: /usr/src/
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ./:/usr/src/
+    command: 'yarn dev'
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+      - redis
+    links:
+      - db
+      - redis
+
+  db:
+    image: postgres:11.1-alpine
+    volumes:
+      - ./database-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: pwd
+      POSTGRES_USER: user
+      POSTGRES_DB: store
+
+  redis:
+    image: redis:5.0.3-alpine
